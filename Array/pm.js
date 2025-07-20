@@ -1,29 +1,17 @@
-function primeNumber(num) {
-    let arr = Array(num);
-    let index = 0;
+let arr = [];
 
-    function checkPrime(number) {
-
-        if (number < 2) {
-            return false;
-        }
-        for (let i = 2; i < number; i++) {
-            if (number % i == 0) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    for(let i=0;i<num;i++){
-        if(checkPrime(i)){
-            arr[index]=i;
-            index +=1;
+for(let i=2;i<=20;i++){
+    let isPrime = true;
+    for(let j=2;j<i;j++){
+        if(i%j===0){
+            isPrime = false;
+            break;
         }
     }
-    return arr.slice(0, index);
-    
+    if(isPrime){
+        arr.push(i);
+    }
 }
-console.log(primeNumber(10));
 
+console.log(arr);
 
